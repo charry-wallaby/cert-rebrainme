@@ -3,8 +3,6 @@ extends ../layout/main
 block content
     .certificate.certificate__portrait.certificate__portrait_v1
         .certificate__wrapper
-            +certHeader(false)
-            .certificate__logo
-                img(src='img/logo_rebrain.svg', alt='Rebrainme')
+            +certHeader(false, true)
             +certBody()
             +certFooter()
