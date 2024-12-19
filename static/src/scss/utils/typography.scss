@@ -1,0 +1,20 @@
+h1, .h1{
+    font-family: $second-family;
+    font-weight: 400;
+    font-size: 10vw;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    -webkit-text-fill-color: $color-dark;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $color-primary;
+    color: transparent;
+    margin: 0;
+
+    @include rmin(576) {
+        font-size: vw(75px);
+    }
+}
+
+p {
+    margin: 0;
+}

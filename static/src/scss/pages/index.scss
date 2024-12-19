@@ -1,0 +1,82 @@
+.certificate {
+    &__landscape {
+        max-width: 842px;
+        aspect-ratio: 842 / 595;
+        padding: vw(24px);
+        
+        @include rmin(768) {
+            max-width: vw(842px);
+        }
+
+        .certificate__body {
+            @include rmin(768) {
+                margin-bottom: vw(38px);
+            }
+        }
+
+        .certificate__title {
+            margin-bottom: vw(20px);
+        }
+
+        .certificate__text {
+            max-width: vw(522px);
+        }
+    }
+
+    &__portrait {
+        max-width: 595px;
+        aspect-ratio: 595 / 842;
+        padding: vw(20px);
+
+        @include rmin(768) {
+            max-width: vw(595px);
+        }
+
+        &_v1 {
+            .certificate__header {
+                justify-content: flex-end;
+            }
+            .certificate__logo {
+                position: absolute;
+                top: vw(110px);
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .certificate__body {
+                @include rmin(768) {
+                    margin-bottom: vw(60px);
+                }
+            }
+        }
+        
+        .certificate__header {
+            &-date {
+                font-size: vw(12px);
+            }
+        }
+
+        .certificate__title {
+            margin-bottom: vw(15px);
+        }
+
+        .certificate__text {
+            max-width: vw(450px);
+        }
+
+        .certificate__stack {
+            &-title {
+                text-align: center;
+                margin-bottom: vw(32px);
+            }
+            &-list {
+                margin: 0 auto;
+            }
+        }
+
+        .certificate__footer {
+            &-number {
+                font-size: vw(12px);
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+mixin certBody()
+    - var stacks = ['Git', 'Terraform', 'Docker', 'Gitlab CI', 'Kubernetes', 'CD', 'Observability'];
+    - var title = 'сертификат';
+    - var text = 'Подтверждает, что Иванов Иван Иванович успешно завершил практикум <span class="text-color">Devops v2</span>';
+    - var stackTile = 'технологический стэк';
+
+    .certificate__body
+        h1.certificate__title.text-center=title 
+        p.certificate__text.text-center!=text
+        .certificate__stack 
+            h3.certificate__stack-title=stackTile
+            .certificate__stack-list
+                each stack in stacks
+                    .certificate__stack-item!=stack

@@ -1,0 +1,10 @@
+mixin certHeader(logo)
+    - var logo = true;
+    - var date = '21/03/2024';
+
+    .certificate__header 
+        if logo
+            .certificate__logo
+                img(src='img/logo_rebrain.svg', alt='Rebrainme')
+        .certificate__header-date
+            span=date

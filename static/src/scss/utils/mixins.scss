@@ -1,0 +1,56 @@
+%antialias {
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+@mixin media($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if ($type == max) {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin r($width) {
+    @media only screen and (max-width: #{$width}px) {
+        @content;
+    }
+}
+
+@mixin rmin($width) {
+    @media only screen and (min-width: #{$width}px) {
+        @content;
+    }
+}
+
+@mixin rIn($width, $width2) {
+    @media (min-width: #{$width}px) and (max-width: #{$width2}px) {
+        @content;
+    }
+}
+
+@mixin css-lock($min-size: 1, $max-size: 1.4, $min-width: 20, $max-width: 100, $property: font-size, $unit: px) {
+    #{$property}: #{$max-size}#{$unit};
+    #{$property}: calc(#{$min-size}#{$unit} + (#{$max-size} - #{$min-size}) * ((100vw - #{$min-width}#{$unit}) / (#{$max-width} - #{$min-width})));
+
+    @media (max-width: #{$min-width}#{$unit}) {
+        #{$property}: #{$min-size}#{$unit}
+    }
+    @media (min-width: #{$max-width}#{$unit}) {
+        #{$property}: #{$max-size}#{$unit}
+    }
+}
+
+@function vw($px-vw, $base-vw: 842px) {
+    @return calc(calc($px-vw * 100vw) / $base-vw);
+}
+
+@function vh($height, $base-vh: 595px) {
+    @return calc(calc($height/$base-vh * 100vh) * 1);
+}
